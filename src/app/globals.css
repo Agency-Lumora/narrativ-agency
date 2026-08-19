@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-brand-red: #ff0000;
+  --font-sans: var(--font-inter), Arial, Helvetica, sans-serif;
+  --font-syne: var(--font-syne), Arial, Helvetica, sans-serif;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-syne);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(0, 0, 0, 0.8);
+  text-stroke: 2px rgba(0, 0, 0, 0.8);
+}
+
+@media (min-width: 768px) {
+  /* Hides default cursor to favor our custom red dot */
+  body, a, button, [role="button"] {
+    cursor: none;
+  }
+}
