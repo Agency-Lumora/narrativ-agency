@@ -1,0 +1,22 @@
+# Placeholder for Journey Video
+
+This file should be replaced with an actual video file.
+
+## Requirements:
+- Format: MP4
+- Duration: 6-8 seconds (looping)
+- Style: Black and white, cinematic, slightly desaturated
+- Content: Journey of building a company/brand
+- Resolution: 1920x1080 (desktop), optimized for mobile
+- File size: Under 5MB for performance
+
+## Suggested content ideas:
+- Time-lapse of city/office
+- Abstract journey imagery
+- Business/entrepreneurship themes
+- Subtle motion graphics
+
+## Current path in code:
+/media/other-narrativ-journey.mp4
+
+Replace this file with the actual video and remove the .placeholder extension.

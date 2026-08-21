@@ -5,7 +5,12 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
-export default function Navbar() {
+interface NavbarProps {
+  onJourneyTrigger: () => void;
+  isJourneyActive: boolean;
+}
+
+export default function Navbar({ onJourneyTrigger, isJourneyActive }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -16,6 +21,28 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleOtherNarrativClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    // Check if already at the other-narrativ section
+    const otherNarrativSection = document.getElementById('other-narrativ');
+    if (otherNarrativSection) {
+      const rect = otherNarrativSection.getBoundingClientRect();
+      const isAtSection = rect.top < 200 && rect.bottom > 0;
+      
+      if (isAtSection) {
+        // Already at section, just scroll smoothly
+        otherNarrativSection.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        // Trigger the journey animation
+        onJourneyTrigger();
+      }
+    } else {
+      // Section not found, trigger journey
+      onJourneyTrigger();
+    }
+  };
 
   return (
     <header
@@ -39,15 +66,16 @@ export default function Navbar() {
           <Link href="#results" className="hover:text-brand-red transition-colors">
             Impact
           </Link>
-          <Link
-            href="#other-narrativ"
-            className="group relative px-5 py-2.5 rounded-full bg-white/70 backdrop-blur-md border border-black/10 shadow-sm hover:bg-white/90 hover:shadow-md hover:border-black/20 transition-all duration-300 ml-2"
+          <button
+            onClick={handleOtherNarrativClick}
+            disabled={isJourneyActive}
+            className="group relative px-5 py-2.5 rounded-full bg-white/70 backdrop-blur-md border border-black/10 shadow-sm hover:bg-white/90 hover:shadow-md hover:border-black/20 transition-all duration-300 ml-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-brand-red rounded-full group-hover:scale-125 transition-transform duration-300"></span>
               the other narrativ.
             </span>
-          </Link>
+          </button>
           <Link
             href="#contact"
             className="bg-black text-white px-6 py-3 rounded-full hover:bg-brand-red transition-colors ml-2"
@@ -94,14 +122,17 @@ export default function Navbar() {
           >
             Impact
           </Link>
-          <Link
-            href="#other-narrativ"
-            className="group flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-white/70 backdrop-blur-md border border-black/10 shadow-sm hover:bg-white/90 hover:shadow-md hover:border-black/20 transition-all duration-300 mt-2"
-            onClick={() => setIsOpen(false)}
+          <button
+            onClick={(e) => {
+              handleOtherNarrativClick(e);
+              setIsOpen(false);
+            }}
+            disabled={isJourneyActive}
+            className="group flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-white/70 backdrop-blur-md border border-black/10 shadow-sm hover:bg-white/90 hover:shadow-md hover:border-black/20 transition-all duration-300 mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <span className="w-1 h-1 bg-brand-red rounded-full group-hover:scale-125 transition-transform duration-300"></span>
             the other narrativ.
-          </Link>
+          </button>
           <Link
             href="#contact"
             className="bg-black text-white text-center px-6 py-4 rounded-full hover:bg-brand-red transition-colors mt-2"
