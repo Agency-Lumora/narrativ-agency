@@ -56,15 +56,15 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="lg:col-span-6 relative"
+            className="lg:col-span-6 relative w-full max-w-full overflow-hidden"
           >
-            <div className="relative space-y-2">
+            <div className="relative space-y-2 w-full">
               {/* Video 1 - Top Left */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="relative w-[75%] aspect-video rounded-xl overflow-hidden group cursor-pointer shadow-lg"
+                className="relative w-[75%] max-w-[75%] aspect-video rounded-xl overflow-hidden group cursor-pointer shadow-lg"
               >
                 <Image 
                   src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=2000" 
@@ -90,7 +90,7 @@ export default function Hero() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
-                className="relative w-[70%] aspect-video rounded-xl overflow-hidden group cursor-pointer shadow-lg ml-auto -mt-4"
+                className="relative w-[70%] max-w-[70%] aspect-video rounded-xl overflow-hidden group cursor-pointer shadow-lg ml-auto"
               >
                 <Image 
                   src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2000" 
@@ -116,7 +116,7 @@ export default function Hero() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="relative w-[65%] aspect-video rounded-xl overflow-hidden group cursor-pointer shadow-lg -mt-4"
+                className="relative w-[65%] max-w-[65%] aspect-video rounded-xl overflow-hidden group cursor-pointer shadow-lg"
               >
                 <Image 
                   src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2000" 
