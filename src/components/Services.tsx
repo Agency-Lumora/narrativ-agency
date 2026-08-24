@@ -393,6 +393,7 @@ export default function Services() {
             <motion.div
               className="
                 relative
+                group
                 flex
                 h-[140px]
                 w-[140px]
@@ -409,12 +410,13 @@ export default function Services() {
               whileHover={{
                 scale: 1.04,
                 borderColor: "rgba(239,68,68,0.55)",
+                backgroundColor: "white",
               }}
               transition={{
                 duration: 0.3,
               }}
             >
-              <p className="font-heading text-xl font-bold tracking-wide text-white lg:text-2xl">
+              <p className="font-heading text-xl font-bold tracking-wide text-white lg:text-2xl transition-colors duration-300 group-hover:text-black">
                 narrativ
                 <span className="text-brand-red">.</span>
               </p>
@@ -707,12 +709,21 @@ export default function Services() {
               }}
             />
 
-            <div className="relative flex h-[110px] w-[110px] items-center justify-center rounded-full border border-white/20 bg-black">
-              <p className="font-heading text-lg font-bold tracking-wide text-white">
+            <motion.div 
+              className="relative group flex h-[110px] w-[110px] items-center justify-center rounded-full border border-white/20 bg-black"
+              whileHover={{
+                backgroundColor: "white",
+                borderColor: "rgba(239,68,68,0.55)",
+              }}
+              transition={{
+                duration: 0.3,
+              }}
+            >
+              <p className="font-heading text-lg font-bold tracking-wide text-white transition-colors duration-300 group-hover:text-black">
                 narrativ
                 <span className="text-brand-red">.</span>
               </p>
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Mobile services */}

@@ -102,7 +102,7 @@ const BenefitCard = ({
         p-6 md:p-7
         ${
           isHovered
-            ? "border-brand-red/30 -translate-y-1 shadow-[0_12px_35px_rgba(0,0,0,0.06)]"
+            ? "bg-black border-brand-red/30 -translate-y-1 shadow-[0_12px_35px_rgba(0,0,0,0.15)]"
             : "border-black/[0.08]"
         }
       `}
@@ -116,7 +116,7 @@ const BenefitCard = ({
           to-transparent
           pointer-events-none
           transition-opacity duration-500
-          ${isHovered ? "opacity-100" : "opacity-0"}
+          ${isHovered ? "opacity-0" : "opacity-0"}
         `}
       />
 
@@ -141,7 +141,7 @@ const BenefitCard = ({
             transition-all duration-400
             ${
               isHovered
-                ? "bg-brand-red/60"
+                ? "bg-brand-red/80"
                 : "bg-black/15"
             }
           `}
@@ -154,7 +154,7 @@ const BenefitCard = ({
             transition-all duration-400
             ${
               isHovered
-                ? "bg-brand-red/60"
+                ? "bg-brand-red/80"
                 : "bg-black/15"
             }
           `}
@@ -171,7 +171,7 @@ const BenefitCard = ({
           transition-colors duration-300
           ${
             isHovered
-              ? "text-brand-red"
+              ? "text-white"
               : "text-black/30"
           }
         `}
@@ -192,7 +192,7 @@ const BenefitCard = ({
             transition-colors duration-300
             ${
               isHovered
-                ? "text-black"
+                ? "text-white"
                 : "text-black/90"
             }
           `}
@@ -208,7 +208,7 @@ const BenefitCard = ({
             transition-colors duration-300
             ${
               isHovered
-                ? "text-black/65"
+                ? "text-white/70"
                 : "text-black/50"
             }
           `}

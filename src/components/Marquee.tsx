@@ -16,7 +16,7 @@ export default function Marquee() {
     <div className="w-full bg-white pt-12 pb-8">
       
       {/* Original Single-Line Header */}
-      <div className="container mx-auto px-6 md:px-12 mb-6 flex items-center justify-center md:justify-start gap-4">
+      <div className="container mx-auto px-6 md:px-12 mb-6 flex items-center justify-center gap-4">
          <span className="w-2 h-2 bg-red-600 rounded-full"></span>
          <p className="text-black font-bold tracking-widest uppercase text-xs">
            Brands that trust our narrativ.
