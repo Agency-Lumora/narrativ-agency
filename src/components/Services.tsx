@@ -92,7 +92,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative overflow-hidden bg-black py-16 text-white md:py-20"
+      className="relative overflow-hidden bg-black pt-12 pb-16 text-white md:pt-16 md:pb-20"
     >
       <div className="container mx-auto max-w-[1200px] px-6 md:px-12">
 

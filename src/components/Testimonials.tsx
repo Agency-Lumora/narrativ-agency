@@ -34,7 +34,7 @@ export default function Testimonials() {
               transition={{ delay: index * 0.2, duration: 0.8 }}
               className="flex flex-col gap-8"
             >
-              <h3 className="text-3xl md:text-5xl font-medium leading-tight">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium leading-tight">
                 "{t.quote}"
               </h3>
               <div className="flex items-center gap-6 mt-auto">

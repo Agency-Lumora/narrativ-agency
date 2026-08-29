@@ -35,7 +35,7 @@ export default function Cta() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-5xl md:text-[100px] font-bold uppercase tracking-tighter leading-none mb-12"
+          className="text-[42px] md:text-[64px] lg:text-[76px] font-bold uppercase tracking-tighter leading-none mb-12"
         >
           Let's <br /> Talk<span className="text-brand-red">.</span>
         </motion.h2>

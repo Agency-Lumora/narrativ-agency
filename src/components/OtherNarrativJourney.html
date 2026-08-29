@@ -1,0 +1,474 @@
+<!-- ================================================================= -->
+<!-- THE OTHER NARRATIV — JOURNEY TRANSITION SECTION & OVERLAY STYLES -->
+<!-- ================================================================= -->
+
+<!-- Tailored Styles & Animations for the Journey Overlay -->
+<style>
+    /* Fullscreen Overlay Base */
+    #journey-overlay {
+        background-color: #0b0b0b;
+        font-family: 'Space Grotesk', 'Inter', sans-serif;
+    }
+
+    /* Film Grain Texture */
+    .journey-grain {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 60;
+        opacity: 0.06;
+        background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Polaroid Card Styling */
+    .polaroid-card {
+        background: #ffffff;
+        color: #111111;
+        padding: 8px 8px 24px 8px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9), 0 0 15px rgba(0,0,0,0.6);
+        transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+        transform-origin: center center;
+        will-change: transform, opacity;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .polaroid-caption {
+        font-family: 'Caveat', cursive;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #111111;
+        text-align: center;
+        margin-top: 6px;
+        line-height: 1;
+        letter-spacing: 0.5px;
+    }
+
+    /* SVG Path & Canvas Styling */
+    #journey-svg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 30;
+    }
+</style>
+
+<!-- FULLSCREEN JOURNEY TRANSITION OVERLAY CONTAINER -->
+<div id="journey-overlay" class="fixed inset-0 z-40 opacity-0 pointer-events-none transition-opacity duration-700 flex flex-col justify-between overflow-hidden">
+    
+    <!-- Film Grain Overlay -->
+    <div class="journey-grain"></div>
+
+    <!-- LAYER 1: B&W DOCUMENTARY FOOTAGE GRID (6-panel background) -->
+    <div id="bg-video-container" class="absolute inset-0 z-0 opacity-0 transition-opacity duration-1000 grid grid-cols-3 grid-rows-2 gap-2 p-2 bg-black">
+        <!-- Panel 1: Whiteboard Brainstorming -->
+        <div class="relative overflow-hidden filter grayscale contrast-125 brightness-75">
+            <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Brainstorming">
+        </div>
+        <!-- Panel 2: Multi-monitor Workstation -->
+        <div class="relative overflow-hidden filter grayscale contrast-125 brightness-75">
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Monitors">
+        </div>
+        <!-- Panel 3: Team Table Meeting -->
+        <div class="relative overflow-hidden filter grayscale contrast-125 brightness-75">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Team meeting">
+        </div>
+        <!-- Panel 4: Studio Conversation -->
+        <div class="relative overflow-hidden filter grayscale contrast-125 brightness-75">
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Founder talk">
+        </div>
+        <!-- Panel 5: Cinema Filming Camera -->
+        <div class="relative overflow-hidden filter grayscale contrast-125 brightness-75">
+            <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Camera">
+        </div>
+        <!-- Panel 6: Creative Strategy -->
+        <div class="relative overflow-hidden filter grayscale contrast-125 brightness-75">
+            <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Strategy meeting">
+        </div>
+
+        <!-- Overlaid Vignette Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/70 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-black/30 pointer-events-none"></div>
+    </div>
+
+    <!-- LAYER 2: FLOATING POLAROID MEMORIES -->
+    <div id="polaroids-layer" class="absolute inset-0 z-20 pointer-events-none">
+        <!-- Polaroid 1: Top Left -->
+        <div id="pol-1" class="polaroid-card absolute w-36 md:w-44 opacity-0 transform translate-y-8 -rotate-12 top-[18%] left-[4%] md:left-[8%]">
+            <div class="w-full h-24 md:h-28 bg-gray-800 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover filter grayscale contrast-125" alt="The First Idea">
+            </div>
+            <p class="polaroid-caption">the first idea.</p>
+        </div>
+
+        <!-- Polaroid 2: Top Right -->
+        <div id="pol-2" class="polaroid-card absolute w-36 md:w-44 opacity-0 transform translate-y-8 rotate-6 top-[22%] right-[5%] md:right-[9%]">
+            <div class="w-full h-24 md:h-28 bg-gray-800 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover filter grayscale contrast-125" alt="The Team">
+            </div>
+            <p class="polaroid-caption">the team.</p>
+        </div>
+
+        <!-- Polaroid 3: Middle Right -->
+        <div id="pol-3" class="polaroid-card absolute w-36 md:w-44 opacity-0 transform translate-y-8 -rotate-6 top-[40%] right-[22%] md:right-[26%]">
+            <div class="w-full h-24 md:h-28 bg-gray-800 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover filter grayscale contrast-125" alt="Late Nights">
+            </div>
+            <p class="polaroid-caption">late nights.</p>
+        </div>
+
+        <!-- Polaroid 4: Lower Right -->
+        <div id="pol-4" class="polaroid-card absolute w-36 md:w-44 opacity-0 transform translate-y-8 rotate-12 bottom-[24%] right-[6%] md:right-[10%]">
+            <div class="w-full h-24 md:h-28 bg-gray-800 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover filter grayscale contrast-125" alt="First Client">
+            </div>
+            <p class="polaroid-caption">first conversation.</p>
+        </div>
+    </div>
+
+    <!-- LAYER 3: CHAPTER MARKER & METAPHOR LABELS -->
+    <div class="relative z-20 pt-28 px-8 md:px-16 max-w-7xl mx-auto w-full flex justify-between items-start pointer-events-none">
+        <!-- Chapter Indicator -->
+        <div id="chapter-box" class="transition-all duration-500 transform translate-y-4 opacity-0">
+            <span id="chapter-num" class="text-xs font-bold tracking-[0.3em] text-[#E50914] uppercase block mb-1">CHAPTER 03</span>
+            <h2 id="chapter-title" class="text-2xl md:text-4xl font-bold text-white tracking-tight">THE FIRST CLIENT</h2>
+        </div>
+        
+        <!-- Track Metaphor Legend -->
+        <div class="text-right hidden sm:block">
+            <span class="text-[10px] tracking-widest text-gray-400 uppercase block font-mono">AHEAD: BLACK</span>
+            <span class="text-[10px] tracking-widest text-[#E50914] uppercase block font-mono mt-0.5">TRAIL: NARRATIV RED</span>
+        </div>
+    </div>
+
+    <!-- DESTINATION BRANDING OVERLAY -->
+    <div class="absolute bottom-14 left-8 md:left-16 z-20 max-w-md pointer-events-none">
+        <h2 class="text-4xl md:text-6xl font-bold tracking-tight text-white leading-tight">
+            the other<br/><span class="text-white">narrativ</span><span class="text-[#E50914]">.</span>
+        </h2>
+        <p class="text-sm md:text-base text-gray-400 font-light mt-2 italic">
+            Stories beyond the brief.
+        </p>
+    </div>
+
+    <!-- LAYER 4: SVG DUAL-RAIL TRACKS & VINTAGE STEAM LOCOMOTIVE -->
+    <svg id="journey-svg" viewBox="0 0 1440 900" preserveAspectRatio="none">
+        <defs>
+            <filter id="red-glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="6" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+            <radialGradient id="headlight-glow" cx="0.5" cy="0.5" r="0.5">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+                <stop offset="30%" stop-color="#ffffff" stop-opacity="0.8"/>
+                <stop offset="100%" stop-color="#E50914" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="headlight-beam" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+                <stop offset="30%" stop-color="#ffffff" stop-opacity="0.25"/>
+                <stop offset="100%" stop-color="#E50914" stop-opacity="0"/>
+            </linearGradient>
+        </defs>
+
+        <!-- TRACK PATH VECTOR -->
+        <path id="track-ballast" d="M -100 480 C 350 430, 550 470, 850 570 C 1050 640, 1180 760, 1480 940" fill="none" stroke="#0a0a0a" stroke-width="38" stroke-linecap="square"/>
+        <path id="track-ties-base" d="M -100 480 C 350 430, 550 470, 850 570 C 1050 640, 1180 760, 1480 940" fill="none" stroke="#222222" stroke-width="28" stroke-dasharray="5,14" stroke-linecap="square"/>
+        <path id="track-rail-base" d="M -100 480 C 350 430, 550 470, 850 570 C 1050 640, 1180 760, 1480 940" fill="none" stroke="#333333" stroke-width="14" stroke-linecap="round"/>
+        <path id="track-rail-inner-groove" d="M -100 480 C 350 430, 550 470, 850 570 C 1050 640, 1180 760, 1480 940" fill="none" stroke="#111111" stroke-width="6" stroke-linecap="round"/>
+
+        <!-- NARRATIV RED ACTIVE TRACK TRAIL -->
+        <path id="track-ties-active" d="M -100 480 C 350 430, 550 470, 850 570 C 1050 640, 1180 760, 1480 940" fill="none" stroke="#E50914" stroke-width="28" stroke-dasharray="5,14" stroke-dashoffset="3000" stroke-linecap="square"/>
+        <path id="track-active" d="M -100 480 C 350 430, 550 470, 850 570 C 1050 640, 1180 760, 1480 940" fill="none" stroke="#E50914" stroke-width="14" stroke-dasharray="3000" stroke-dashoffset="3000" filter="url(#red-glow)"/>
+        <path id="track-rail-highlight" d="M -100 480 C 350 430, 550 470, 850 570 C 1050 640, 1180 760, 1480 940" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-dasharray="3000" stroke-dashoffset="3000" stroke-linecap="round"/>
+
+        <!-- VINTAGE STEAM LOCOMOTIVE VECTOR (WHEELS ALIGNED AT Y = 0 TO RIDE ON TRACK) -->
+        <g id="train-group" opacity="0" transform="translate(-200,-200)">
+            <g id="train-smoke"></g>
+
+            <!-- Passenger Carriage 3 -->
+            <g id="carriage-3" transform="translate(-230, 0)">
+                <circle cx="-24" cy="-4.5" r="4.5" fill="#000" stroke="#444" stroke-width="1.5"/>
+                <circle cx="16" cy="-4.5" r="4.5" fill="#000" stroke="#444" stroke-width="1.5"/>
+                <rect x="-40" y="-33.5" width="75" height="24" rx="2" fill="#121212" stroke="#2a2a2a" stroke-width="1.5"/>
+                <path d="M -42 -33.5 Q 0 -39.5 37 -33.5 Z" fill="#222222"/>
+                <rect x="-32" y="-27.5" width="8" height="12" rx="1" fill="#1e1e1e"/>
+                <rect x="-20" y="-27.5" width="8" height="12" rx="1" fill="#1e1e1e"/>
+                <rect x="-8" y="-27.5" width="8" height="12" rx="1" fill="#1e1e1e"/>
+                <rect x="4" y="-27.5" width="8" height="12" rx="1" fill="#1e1e1e"/>
+                <rect x="16" y="-27.5" width="8" height="12" rx="1" fill="#1e1e1e"/>
+                <line x1="35" y1="-13" x2="45" y2="-13" stroke="#555" stroke-width="2.5"/>
+            </g>
+
+            <!-- Passenger Carriage 2 -->
+            <g id="carriage-2" transform="translate(-150, 0)">
+                <circle cx="-24" cy="-4.5" r="4.5" fill="#000" stroke="#444" stroke-width="1.5"/>
+                <circle cx="16" cy="-4.5" r="4.5" fill="#000" stroke="#444" stroke-width="1.5"/>
+                <rect x="-40" y="-33.5" width="75" height="24" rx="2" fill="#141414" stroke="#2a2a2a" stroke-width="1.5"/>
+                <path d="M -42 -33.5 Q 0 -39.5 37 -33.5 Z" fill="#222222"/>
+                <rect x="-32" y="-27.5" width="8" height="12" rx="1" fill="#1e1e1e"/>
+                <rect x="-20" y="-27.5" width="8" height="12" rx="1" fill="#1e1e1e"/>
+                <rect x="-8" y="-27.5" width="8" height="12" rx="1" fill="#1e1e1e"/>
+                <rect x="4" y="-27.5" width="8" height="12" rx="1" fill="#E50914" opacity="0.6"/>
+                <rect x="16" y="-27.5" width="8" height="12" rx="1" fill="#1e1e1e"/>
+                <line x1="35" y1="-13" x2="45" y2="-13" stroke="#555" stroke-width="2.5"/>
+            </g>
+
+            <!-- Passenger Carriage 1 -->
+            <g id="carriage-1" transform="translate(-70, 0)">
+                <circle cx="-24" cy="-4.5" r="4.5" fill="#000" stroke="#444" stroke-width="1.5"/>
+                <circle cx="16" cy="-4.5" r="4.5" fill="#000" stroke="#444" stroke-width="1.5"/>
+                <rect x="-40" y="-33.5" width="75" height="24" rx="2" fill="#161616" stroke="#2a2a2a" stroke-width="1.5"/>
+                <path d="M -42 -33.5 Q 0 -39.5 37 -33.5 Z" fill="#252525"/>
+                <rect x="-32" y="-27.5" width="8" height="12" rx="1" fill="#1e1e1e"/>
+                <rect x="-20" y="-27.5" width="8" height="12" rx="1" fill="#1e1e1e"/>
+                <rect x="-8" y="-27.5" width="8" height="12" rx="1" fill="#1e1e1e"/>
+                <rect x="4" y="-27.5" width="8" height="12" rx="1" fill="#1e1e1e"/>
+                <rect x="16" y="-27.5" width="8" height="12" rx="1" fill="#1e1e1e"/>
+                <line x1="35" y1="-13" x2="43" y2="-13" stroke="#555" stroke-width="2.5"/>
+            </g>
+
+            <!-- Coal Tender Car -->
+            <g id="tender" transform="translate(5, 0)">
+                <circle cx="-12" cy="-4" r="4" fill="#000" stroke="#333" stroke-width="1.5"/>
+                <circle cx="6" cy="-4" r="4" fill="#000" stroke="#333" stroke-width="1.5"/>
+                <rect x="-20" y="-24" width="34" height="20" fill="#0e0e0e" stroke="#2a2a2a" stroke-width="1.5"/>
+                <path d="M -18 -24 Q -8 -32 0 -24 Q 8 -30 14 -24 Z" fill="#050505"/>
+                <line x1="14" y1="-11" x2="20" y2="-11" stroke="#666" stroke-width="3.5"/>
+            </g>
+
+            <!-- Locomotive Engine -->
+            <g id="locomotive" transform="translate(50, 0)">
+                <!-- Wheels -->
+                <g id="wheels">
+                    <circle cx="-10" cy="-9" r="9" fill="#0d0d0d" stroke="#555" stroke-width="1.5"/>
+                    <circle cx="-10" cy="-9" r="2" fill="#E50914"/>
+                    <circle cx="8" cy="-9" r="9" fill="#0d0d0d" stroke="#555" stroke-width="1.5"/>
+                    <circle cx="8" cy="-9" r="2" fill="#E50914"/>
+                    <circle cx="26" cy="-9" r="9" fill="#0d0d0d" stroke="#555" stroke-width="1.5"/>
+                    <circle cx="26" cy="-9" r="2" fill="#E50914"/>
+                    <line x1="-10" y1="-9" x2="34" y2="-9" stroke="#ffffff" stroke-width="2" opacity="0.9"/>
+                </g>
+
+                <!-- Boiler & Cab -->
+                <rect x="-20" y="-36" width="50" height="24" fill="#111111" stroke="#333" stroke-width="1.5"/>
+                <line x1="-10" y1="-36" x2="-10" y2="-12" stroke="#444" stroke-width="1.5"/>
+                <line x1="5" y1="-36" x2="5" y2="-12" stroke="#444" stroke-width="1.5"/>
+                <line x1="20" y1="-36" x2="20" y2="-12" stroke="#444" stroke-width="1.5"/>
+
+                <rect x="-32" y="-46" width="20" height="34" fill="#0a0a0a" stroke="#222" stroke-width="1.5"/>
+                <path d="M -34 -46 Q -22 -51 -10 -46 Z" fill="#E50914"/>
+                <rect x="-26" y="-38" width="9" height="12" rx="1.5" fill="#E50914" opacity="0.85"/>
+
+                <path d="M -8 -36 Q -3 -44 2 -36 Z" fill="#777" stroke="#aaa" stroke-width="1"/>
+                <path d="M 10 -36 Q 14 -42 18 -36 Z" fill="#777" stroke="#aaa" stroke-width="1"/>
+
+                <path d="M 22 -36 L 20 -48 L 30 -48 L 28 -36 Z" fill="#1a1a1a" stroke="#444" stroke-width="1.5"/>
+                <ellipse cx="25" cy="-48" rx="5" ry="1.5" fill="#E50914"/>
+
+                <polygon points="30,-12 48,-5 48,-18 30,-18" fill="#1c1c1c" stroke="#E50914" stroke-width="1.5"/>
+                <line x1="34" y1="-13" x2="44" y2="-8" stroke="#aaa" stroke-width="1"/>
+
+                <rect x="30" y="-30" width="7" height="9" fill="#222" stroke="#888" stroke-width="1"/>
+                <circle cx="37" cy="-25.5" r="3.5" fill="url(#headlight-glow)"/>
+                <polygon points="37,-29.5 100,-46.5 100,-4.5 37,-21.5" fill="url(#headlight-beam)" opacity="0.35"/>
+            </g>
+        </g>
+    </svg>
+
+    <!-- LAYER 5: PROGRESS BAR INDICATOR -->
+    <div class="relative z-20 pb-8 px-8 max-w-md mx-auto w-full text-center pointer-events-none">
+        <div class="w-full bg-white/10 h-1 rounded-full overflow-hidden border border-white/20">
+            <div id="journey-progress-bar" class="bg-[#E50914] h-full w-0 transition-all duration-100"></div>
+        </div>
+        <span class="text-[10px] tracking-[0.2em] uppercase text-gray-400 mt-2 block font-mono">Transitioning to destination</span>
+    </div>
+</div>
+
+<!-- TRANSITION ENGINE CONTROLLER SCRIPT -->
+<script>
+    function initJourneyTransition(triggerButtonId, destinationSectionId) {
+        const triggerBtn = document.getElementById(triggerButtonId);
+        const overlay = document.getElementById('journey-overlay');
+        const bgVideoContainer = document.getElementById('bg-video-container');
+        const activeTrack = document.getElementById('track-active');
+        const activeTies = document.getElementById('track-ties-active');
+        const trackHighlight = document.getElementById('track-rail-highlight');
+        const trackPath = document.getElementById('track-ballast');
+        const trainGroup = document.getElementById('train-group');
+        const trainSmoke = document.getElementById('train-smoke');
+        const chapterBox = document.getElementById('chapter-box');
+        const chapterNum = document.getElementById('chapter-num');
+        const chapterTitle = document.getElementById('chapter-title');
+        const progressBar = document.getElementById('journey-progress-bar');
+        
+        const polaroids = [
+            { el: document.getElementById('pol-1'), triggerAt: 0.12 },
+            { el: document.getElementById('pol-2'), triggerAt: 0.35 },
+            { el: document.getElementById('pol-3'), triggerAt: 0.58 },
+            { el: document.getElementById('pol-4'), triggerAt: 0.80 }
+        ];
+
+        const chapters = [
+            { title: 'THE BEGINNING', num: 'CHAPTER 01', at: 0.05 },
+            { title: 'THE FIRST IDEA', num: 'CHAPTER 02', at: 0.22 },
+            { title: 'THE FIRST CLIENT', num: 'CHAPTER 03', at: 0.45 },
+            { title: 'THE LATE NIGHTS', num: 'CHAPTER 04', at: 0.68 },
+            { title: 'THE FIRST CONVERSATION', num: 'CHAPTER 05', at: 0.88 }
+        ];
+
+        let isAnimating = false;
+        let pathLength = trackPath.getTotalLength();
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        const resetTrackDash = () => {
+            pathLength = trackPath.getTotalLength();
+            activeTrack.style.strokeDasharray = pathLength;
+            activeTrack.style.strokeDashoffset = pathLength;
+            activeTies.style.strokeDasharray = `5,14`;
+            activeTies.style.strokeDashoffset = pathLength;
+            trackHighlight.style.strokeDasharray = pathLength;
+            trackHighlight.style.strokeDashoffset = pathLength;
+        };
+        resetTrackDash();
+
+        if (triggerBtn) {
+            triggerBtn.addEventListener('click', () => {
+                if (isAnimating) return;
+                isAnimating = true;
+
+                resetTrackDash();
+                document.body.style.overflow = 'hidden';
+
+                overlay.classList.remove('pointer-events-none');
+                overlay.classList.add('opacity-100');
+                bgVideoContainer.classList.remove('opacity-0');
+                bgVideoContainer.classList.add('opacity-100');
+
+                const duration = prefersReducedMotion ? 2000 : 7000;
+                let startTime = null;
+
+                trainGroup.setAttribute('opacity', '1');
+
+                function animateFrame(timestamp) {
+                    if (!startTime) startTime = timestamp;
+                    const elapsed = timestamp - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+
+                    const easeProgress = progress < 0.5 
+                        ? 2 * progress * progress 
+                        : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+                    const currentPointLength = easeProgress * pathLength;
+                    const point = trackPath.getPointAtLength(currentPointLength);
+                    
+                    const aheadPoint = trackPath.getPointAtLength(Math.min(currentPointLength + 2, pathLength));
+                    const angle = Math.atan2(aheadPoint.y - point.y, aheadPoint.x - point.x) * (180 / Math.PI);
+
+                    // Position Steam Locomotive (Wheels touch track directly at point.x, point.y)
+                    trainGroup.setAttribute('transform', `translate(${point.x}, ${point.y}) rotate(${angle})`);
+
+                    const strokeOffset = pathLength - currentPointLength;
+                    activeTrack.style.strokeDashoffset = strokeOffset;
+                    activeTies.style.strokeDashoffset = strokeOffset;
+                    trackHighlight.style.strokeDashoffset = strokeOffset;
+
+                    progressBar.style.width = `${progress * 100}%`;
+
+                    for (let i = chapters.length - 1; i >= 0; i--) {
+                        if (progress >= chapters[i].at) {
+                            if (chapterTitle.textContent !== chapters[i].title) {
+                                chapterBox.classList.add('opacity-0', 'translate-y-4');
+                                setTimeout(() => {
+                                    chapterNum.textContent = chapters[i].num;
+                                    chapterTitle.textContent = chapters[i].title;
+                                    chapterBox.classList.remove('opacity-0', 'translate-y-4');
+                                }, 150);
+                            }
+                            break;
+                        }
+                    }
+
+                    polaroids.forEach((pol) => {
+                        if (progress >= pol.triggerAt) {
+                            pol.el.classList.remove('opacity-0', 'translate-y-8');
+                            pol.el.classList.add('opacity-100', 'translate-y-0');
+                        }
+                    });
+
+                    if (Math.random() > 0.35 && progress < 0.95 && !prefersReducedMotion) {
+                        createSteamCloud(point.x, point.y, angle, trainSmoke);
+                    }
+
+                    if (progress < 1) {
+                        requestAnimationFrame(animateFrame);
+                    } else {
+                        setTimeout(() => {
+                            overlay.classList.add('opacity-0');
+                            overlay.classList.add('pointer-events-none');
+                            document.body.style.overflow = '';
+
+                            const destination = document.getElementById(destinationSectionId);
+                            if (destination) {
+                                destination.scrollIntoView({ behavior: 'smooth' });
+                            }
+
+                            setTimeout(() => {
+                                isAnimating = false;
+                                resetTrackDash();
+                                trainGroup.setAttribute('opacity', '0');
+                                polaroids.forEach(p => p.el.classList.add('opacity-0', 'translate-y-8'));
+                                progressBar.style.width = '0%';
+                            }, 1000);
+
+                        }, 400);
+                    }
+                }
+
+                requestAnimationFrame(animateFrame);
+            });
+        }
+    }
+
+    function createSteamCloud(trainX, trainY, trainAngle, container) {
+        const rad = trainAngle * (Math.PI / 180);
+        const chimneyX = trainX + (75 * Math.cos(rad)) - (-48 * Math.sin(rad));
+        const chimneyY = trainY + (75 * Math.sin(rad)) + (-48 * Math.cos(rad));
+
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('cx', chimneyX);
+        circle.setAttribute('cy', chimneyY);
+        const initialR = Math.random() * 7 + 5;
+        circle.setAttribute('r', initialR.toString());
+        circle.setAttribute('fill', '#ffffff');
+        circle.setAttribute('opacity', '0.5');
+        circle.setAttribute('filter', 'blur(3px)');
+        container.appendChild(circle);
+
+        let opacity = 0.5;
+        let r = initialR;
+        let curY = chimneyY;
+        let curX = chimneyX;
+        
+        const anim = setInterval(() => {
+            opacity -= 0.015;
+            r += 0.85;
+            curY -= 1.4;
+            curX += (Math.random() - 0.5) * 0.9;
+            circle.setAttribute('opacity', Math.max(0, opacity).toString());
+            circle.setAttribute('r', r.toString());
+            circle.setAttribute('cy', curY.toString());
+            circle.setAttribute('cx', curX.toString());
+
+            if (opacity <= 0) {
+                clearInterval(anim);
+                if (circle.parentNode) circle.parentNode.removeChild(circle);
+            }
+        }, 30);
+    }
+
+    // Initialize on DOM Ready
+    document.addEventListener('DOMContentLoaded', () => {
+        initJourneyTransition('trigger-journey', 'the-other-narrativ');
+    });
+</script>

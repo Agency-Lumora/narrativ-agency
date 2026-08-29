@@ -38,7 +38,7 @@ function AnimatedNumber({ value, suffix, prefix }: { value: number; suffix: stri
   }, [isInView, value]);
 
   return (
-    <span ref={ref} className="text-[50px] md:text-[80px] lg:text-[100px] font-bold tracking-tighter leading-none font-heading text-brand-red">
+    <span ref={ref} className="text-[36px] md:text-[52px] lg:text-[64px] font-bold tracking-tighter leading-none font-heading text-brand-red">
       {prefix}{displayValue}{suffix}
     </span>
   );
@@ -55,10 +55,10 @@ export default function Results() {
           className="mb-16 text-center"
         >
           <p className="text-brand-red font-bold tracking-widest uppercase text-sm mb-4">The Impact</p>
-          <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tighter mb-4 font-heading">
+          <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tighter mb-4 font-heading">
             Numbers don't lie<span className="text-brand-red">.</span>
           </h2>
-          <p className="text-lg md:text-xl text-black/60 font-medium max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-black/60 font-medium max-w-2xl mx-auto">
             We measure success by the impact on your bottom line. Impressions are vanity, conversions are sanity.
           </p>
         </motion.div>

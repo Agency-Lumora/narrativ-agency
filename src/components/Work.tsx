@@ -43,7 +43,7 @@ export default function Work() {
   return (
     <section
       id="work"
-      className="bg-white text-black pt-12 md:pt-16 pb-16 md:pb-20"
+      className="bg-white text-black pt-12 md:pt-16 pb-10 md:pb-12"
     >
       <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
 
@@ -106,9 +106,9 @@ export default function Work() {
                   group
                   cursor-pointer
                   ${index === 0 ? "md:col-span-5 md:col-start-2" : ""}
-                  ${index === 1 ? "md:col-span-5 md:col-start-8 md:mt-10" : ""}
-                  ${index === 2 ? "md:col-span-5 md:col-start-2 md:-mt-2" : ""}
-                  ${index === 3 ? "md:col-span-5 md:col-start-8 md:mt-8" : ""}
+                  ${index === 1 ? "md:col-span-5 md:col-start-8 md:mt-8" : ""}
+                  ${index === 2 ? "md:col-span-5 md:col-start-2" : ""}
+                  ${index === 3 ? "md:col-span-5 md:col-start-8 md:mt-4" : ""}
                 `}
               >
 

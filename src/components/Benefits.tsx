@@ -255,10 +255,6 @@ export default function Benefits() {
         py-14 md:py-16
       "
     >
-      {/* Decorative red dots */}
-      <div className="absolute left-[7%] top-[32%] w-[9px] h-[9px] rounded-full bg-brand-red opacity-90" />
-      <div className="absolute left-[6%] top-[70%] w-[7px] h-[7px] rounded-full bg-brand-red/80" />
-
       <div
         className="
           relative

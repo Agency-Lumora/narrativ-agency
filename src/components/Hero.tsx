@@ -27,7 +27,7 @@ export default function Hero() {
               </p>
             </div>
             
-            <h1 className="text-[16vw] md:text-[7vw] lg:text-[6vw] leading-[1.1] font-bold tracking-tighter uppercase text-black mb-6">
+            <h1 className="text-[42px] sm:text-[52px] md:text-[56px] lg:text-[64px] leading-[1.05] font-bold tracking-tighter uppercase text-black mb-6">
               WE TURN<br/>
               <span className="outline-text">BRANDS</span><br/>
               INTO<br/>

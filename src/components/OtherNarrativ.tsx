@@ -67,7 +67,7 @@ export default function OtherNarrativ() {
             </p>
           </div>
           
-          <h1 className="text-[12vw] md:text-[6vw] lg:text-[5vw] leading-[1.1] font-bold tracking-tighter uppercase font-heading mb-6">
+          <h1 className="text-[38px] md:text-[52px] lg:text-[60px] leading-[1.05] font-bold tracking-tighter uppercase font-heading mb-6">
             the other<br/>
             narrativ<span className="text-brand-red">.</span>
           </h1>
@@ -168,7 +168,7 @@ export default function OtherNarrativ() {
             </h2>
             
             <motion.a
-              href="#contact"
+              href="/#contact"
               className="inline-flex items-center gap-3 bg-black text-white px-6 py-3 rounded-full font-bold text-xs md:text-sm tracking-widest uppercase hover:bg-brand-red transition-colors duration-300 group"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
