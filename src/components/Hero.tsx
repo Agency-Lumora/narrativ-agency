@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[85vh] flex flex-col justify-center pt-28 pb-12 overflow-hidden bg-white">
+    <section className="relative min-h-[85vh] flex flex-col justify-center pt-12 pb-12 overflow-hidden bg-white">
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         
         {/* Header + Showreel Grid Layout */}
@@ -27,7 +27,7 @@ export default function Hero() {
               </p>
             </div>
             
-            <h1 className="text-[42px] sm:text-[52px] md:text-[56px] lg:text-[64px] leading-[1.05] font-bold tracking-tighter uppercase text-black mb-6">
+            <h1 className="text-[52px] sm:text-[62px] md:text-[72px] lg:text-[80px] leading-[1.05] font-bold tracking-tighter uppercase text-black mb-6">
               WE TURN<br/>
               <span className="outline-text">BRANDS</span><br/>
               INTO<br/>
@@ -56,7 +56,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="lg:col-span-6 relative w-full max-w-full overflow-hidden"
+            className="lg:col-span-6 relative w-full max-w-full overflow-hidden mt-16"
           >
             <div className="relative space-y-2 w-full">
               {/* Video 1 - Top Left */}

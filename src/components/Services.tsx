@@ -92,7 +92,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative overflow-hidden bg-black pt-12 pb-16 text-white md:pt-16 md:pb-20"
+      className="relative overflow-hidden bg-black pt-6 pb-8 text-white md:pt-8 md:pb-10"
     >
       <div className="container mx-auto max-w-[1200px] px-6 md:px-12">
 
@@ -104,7 +104,7 @@ export default function Services() {
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-8 text-center"
+          className="mb-4 text-center"
         >
           <p className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-red md:text-sm">
             Services
@@ -125,7 +125,7 @@ export default function Services() {
             DESKTOP NETWORK
         ========================================= */}
 
-        <div className="relative mx-auto mt-10 hidden h-[550px] w-full max-w-5xl md:block">
+        <div className="relative mx-auto mt-4 hidden h-[550px] w-full max-w-5xl md:block">
 
           {/* =======================================
               BACKGROUND ATMOSPHERE
@@ -681,7 +681,7 @@ export default function Services() {
             MOBILE
         ========================================= */}
 
-        <div className="relative mx-auto mt-10 flex w-full max-w-sm flex-col items-center gap-5 md:hidden">
+        <div className="relative mx-auto mt-4 flex w-full max-w-sm flex-col items-center gap-5 md:hidden">
 
           {/* Mobile hub */}
 

@@ -2,7 +2,8 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 // import Work from "@/components/Work";
-// import Services from "@/components/Services";
+import Services from "@/components/Services";
+import AboutPreview from "@/components/AboutPreview";
 import Benefits from "@/components/Benefits";
 import Results from "@/components/Results";
 import Testimonials from "@/components/Testimonials";
@@ -16,8 +17,9 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Marquee />
-      {/* <Work />
-      <Services /> */}
+      {/* <Work /> */}
+      <Services />
+      <AboutPreview />
       <Benefits />
       <Results />
       <Testimonials />

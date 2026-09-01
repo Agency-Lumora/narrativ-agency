@@ -66,7 +66,7 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isDarkHeroPage || scrolled
-            ? "bg-white border-b border-black/5 py-4"
+            ? "bg-white/80 backdrop-blur-md border-b border-black/5 py-4"
             : "bg-transparent py-6"
         }`}
       >
@@ -110,8 +110,8 @@ export default function Navbar() {
 
             {/* About */}
             <Link
-              href="/#about"
-              className="relative py-2 hover:text-brand-red transition-colors duration-200"
+              href="/about"
+              className={`relative py-2 transition-colors duration-200 ${pathname === "/about" ? "text-brand-red" : "hover:text-brand-red"}`}
             >
               About
             </Link>
@@ -239,9 +239,9 @@ export default function Navbar() {
 
             {/* About */}
             <Link
-              href="/#about"
+              href="/about"
               onClick={closeMobileMenu}
-              className="py-2 hover:text-brand-red transition-colors"
+              className={`py-2 transition-colors ${pathname === "/about" ? "text-brand-red" : "hover:text-brand-red"}`}
             >
               About
             </Link>

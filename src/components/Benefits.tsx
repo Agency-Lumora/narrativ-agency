@@ -180,7 +180,7 @@ const BenefitCard = ({
       </span>
 
       {/* Content */}
-      <div className="relative z-10 mt-auto">
+      <div className="relative z-10 flex flex-col h-full mt-6">
         <h3
           className={`
             font-heading

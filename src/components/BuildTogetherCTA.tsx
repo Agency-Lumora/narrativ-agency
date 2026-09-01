@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function BuildTogether() {
   return (
-    <section className="bg-white px-6 py-12 md:px-12 md:py-16">
+    <section className="bg-black px-6 py-12 md:px-12 md:py-16">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -18,8 +18,8 @@ export default function BuildTogether() {
             overflow-hidden
             rounded-[22px]
             border
-            border-black/15
-            bg-[#f5f5f3]
+            border-white/15
+            bg-[#1a1a1a]
             px-8
             py-12
             text-center
@@ -76,7 +76,7 @@ export default function BuildTogether() {
                 font-bold
                 leading-none
                 tracking-[-0.045em]
-                text-black
+                text-white
                 md:text-[52px]
               "
             >
@@ -92,7 +92,7 @@ export default function BuildTogether() {
                 max-w-xl
                 text-sm
                 leading-relaxed
-                text-black/55
+                text-white/70
                 md:text-base
               "
             >
@@ -110,15 +110,16 @@ export default function BuildTogether() {
                   items-center
                   gap-2.5
                   rounded-full
-                  bg-black
+                  bg-white
                   px-6
                   py-3
                   text-sm
                   font-bold
-                  text-white
+                  text-black
                   transition-all
                   duration-300
                   hover:bg-brand-red
+                  hover:text-white
                   md:px-7
                   md:py-3.5
                   md:text-base
@@ -140,7 +141,7 @@ export default function BuildTogether() {
                 font-medium
                 uppercase
                 tracking-[0.18em]
-                text-black/35
+                text-white/35
               "
             >
               No pitch deck required.
@@ -149,7 +150,7 @@ export default function BuildTogether() {
 
           {/* Decorative dots */}
           <span className="absolute bottom-5 left-6 h-2.5 w-2.5 rounded-full bg-brand-red" />
-          <span className="absolute right-6 top-5 h-2 w-2 rounded-full bg-brand-red/70" />
+          <span className="absolute right-6 top-5 h-2 w-2 rounded-full bg-white/50" />
         </motion.div>
       </div>
     </section>
