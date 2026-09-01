@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import OtherNarrativJourney from "@/components/OtherNarrativJourney";
+import OtherNarrativTransition from "@/components/OtherNarrativTransition";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -297,10 +297,11 @@ export default function Navbar() {
       </header>
 
       {/* Other Narrativ Transition */}
-      <OtherNarrativJourney
+      <OtherNarrativTransition
         isActive={isJourneyActive}
-        onComplete={handleJourneyComplete}
-        onSkip={handleJourneyComplete}
+        onNavigate={() => router.push("/the-other-narrativ")}
+        onComplete={() => setIsJourneyActive(false)}
+        onCancel={() => setIsJourneyActive(false)}
       />
     </>
   );

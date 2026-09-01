@@ -48,11 +48,7 @@ export default function TheOtherNarrativPage() {
     return (
       <OtherNarrativStage>
         {!animationComplete ? (
-          <OtherNarrativJourney
-            isActive={true}
-            onComplete={handleAnimationComplete}
-            onSkip={handleAnimationComplete}
-          />
+          <OtherNarrativJourney onComplete={handleAnimationComplete} />
         ) : (
           <OtherNarrativScene />
         )}

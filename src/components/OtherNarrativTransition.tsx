@@ -127,15 +127,10 @@ export default function OtherNarrativTransition({
   return (
     <OtherNarrativStage transitionLayer>
       {phase === "journey" ? (
-        <OtherNarrativJourney
-        isActive={isActive}
-        onComplete={handleJourneyComplete}
-        onSkip={onCancel}
-      />
+        <OtherNarrativJourney onComplete={handleJourneyComplete} />
       ) : (
         <OtherNarrativScene animated decorative />
       )}
     </OtherNarrativStage>
   );
 }
-
