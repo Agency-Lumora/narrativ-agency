@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Phone, Calendar, MessageCircle } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense  } from "react";
 import { useSearchParams } from "next/navigation";
 
-export default function Cta() {
+function CtaContent() {
   const searchParams = useSearchParams();
   const [formData, setFormData] = useState({
     name: '',
@@ -163,5 +163,13 @@ export default function Cta() {
       {/* Abstract bold visual element */}
       <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] bg-red-600 rounded-full blur-[150px] opacity-20 -z-0 pointer-events-none" />
     </section>
+  );
+}
+
+export default function Cta() {
+  return (
+    <Suspense fallback={null}>
+      <CtaContent />
+    </Suspense>
   );
 }

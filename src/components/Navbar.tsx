@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import OtherNarrativJourney from "@/components/OtherNarrativJourney";
+import OtherNarrativTransition from "@/components/OtherNarrativTransition";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,11 +30,22 @@ export default function Navbar() {
   }, []);
 
   const handleOtherNarrativClick = (e: React.MouseEvent) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    // Replay the transition every time
-    setIsJourneyActive(true);
-  };
+  console.log("OTHER NARRATIV CLICKED");
+  console.log("CURRENT PATH:", pathname);
+  console.log("JOURNEY ACTIVE BEFORE:", isJourneyActive);
+
+  if (pathname === "/the-other-narrativ") {
+    console.log("ALREADY ON OTHER NARRATIV - REFRESHING");
+    router.refresh();
+    return;
+  }
+
+  console.log("STARTING OTHER NARRATIV ANIMATION");
+  setIsJourneyActive(true);
+};
+
 
   const handleJourneyComplete = () => {
     setIsJourneyActive(false);
@@ -305,11 +316,13 @@ export default function Navbar() {
       </header>
 
       {/* Other Narrativ Transition */}
-      <OtherNarrativJourney
+      <OtherNarrativTransition
         isActive={isJourneyActive}
-        onComplete={handleJourneyComplete}
-        onSkip={handleJourneyComplete}
+        onNavigate={() => router.push("/the-other-narrativ")}
+        onComplete={() => setIsJourneyActive(false)}
+        onCancel={() => setIsJourneyActive(false)}
       />
     </>
   );
 }
+
