@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import OtherNarrativTransition from "@/components/OtherNarrativTransition";
+import OtherNarrativJourney from "@/components/OtherNarrativJourney";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -111,7 +111,11 @@ export default function Navbar() {
             {/* About */}
             <Link
               href="/about"
-              className={`relative py-2 transition-colors duration-200 ${pathname === "/about" ? "text-brand-red" : "hover:text-brand-red"}`}
+              className={`relative py-2 transition-colors duration-200 ${
+                pathname === "/about"
+                  ? "text-brand-red"
+                  : "hover:text-brand-red"
+              }`}
             >
               About
             </Link>
@@ -241,7 +245,11 @@ export default function Navbar() {
             <Link
               href="/about"
               onClick={closeMobileMenu}
-              className={`py-2 transition-colors ${pathname === "/about" ? "text-brand-red" : "hover:text-brand-red"}`}
+              className={`py-2 transition-colors ${
+                pathname === "/about"
+                  ? "text-brand-red"
+                  : "hover:text-brand-red"
+              }`}
             >
               About
             </Link>
@@ -297,11 +305,10 @@ export default function Navbar() {
       </header>
 
       {/* Other Narrativ Transition */}
-      <OtherNarrativTransition
+      <OtherNarrativJourney
         isActive={isJourneyActive}
-        onNavigate={() => router.push("/the-other-narrativ")}
-        onComplete={() => setIsJourneyActive(false)}
-        onCancel={() => setIsJourneyActive(false)}
+        onComplete={handleJourneyComplete}
+        onSkip={handleJourneyComplete}
       />
     </>
   );

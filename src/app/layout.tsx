@@ -4,7 +4,6 @@ import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import IntroVideo from "@/components/IntroVideo";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -32,7 +31,6 @@ export default function RootLayout({
       <body
         className={`${syne.variable} ${inter.variable} antialiased bg-white text-black font-sans selection:bg-red-600 selection:text-white`}
       >
-        <IntroVideo />
         <CustomCursor />
 
         <Navbar />
