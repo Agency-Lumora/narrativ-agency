@@ -77,14 +77,12 @@ export default function OtherNarrativTransition({
       document.body.style.paddingRight = `${scrollbarWidth}px`;
     }
 
-    // The overlay already fully covers the viewport, so the route can swap
-    // underneath immediately without the user ever seeing the raw navigation.
-    onNavigateRef.current();
     window.addEventListener("popstate", cancelTransition);
 
     if (prefersReducedMotion) {
       const quickTimer = window.setTimeout(() => {
         releaseLock();
+        onNavigateRef.current();
         onCompleteRef.current();
       }, 360);
 
@@ -103,6 +101,9 @@ export default function OtherNarrativTransition({
 
   const handleJourneyComplete = () => {
     setPhase("settled");
+    // Navigate after the journey completes
+    onNavigateRef.current();
+    // Then wait a bit before removing the overlay
     window.setTimeout(() => onCompleteRef.current(), SETTLE_HOLD_MS);
   };
 

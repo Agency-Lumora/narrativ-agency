@@ -11,6 +11,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isJourneyActive, setIsJourneyActive] = useState(false);
+  const [transitionKey, setTransitionKey] = useState(0);
 
   const router = useRouter();
   const pathname = usePathname();
@@ -30,29 +31,20 @@ export default function Navbar() {
   }, []);
 
   const handleOtherNarrativClick = (e: React.MouseEvent) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  console.log("OTHER NARRATIV CLICKED");
-  console.log("CURRENT PATH:", pathname);
-  console.log("JOURNEY ACTIVE BEFORE:", isJourneyActive);
+    if (pathname === "/the-other-narrativ") {
+      router.refresh();
+      return;
+    }
 
-  if (pathname === "/the-other-narrativ") {
-    console.log("ALREADY ON OTHER NARRATIV - REFRESHING");
-    router.refresh();
-    return;
-  }
-
-  console.log("STARTING OTHER NARRATIV ANIMATION");
-  setIsJourneyActive(true);
-};
+    setTransitionKey(Date.now());
+    setIsJourneyActive(true);
+  };
 
 
   const handleJourneyComplete = () => {
     setIsJourneyActive(false);
-
-    if (pathname !== "/the-other-narrativ") {
-      router.push("/the-other-narrativ");
-    }
   };
 
   const handleLogoClick = (e: React.MouseEvent) => {
@@ -316,12 +308,15 @@ export default function Navbar() {
       </header>
 
       {/* Other Narrativ Transition */}
-      <OtherNarrativTransition
-        isActive={isJourneyActive}
-        onNavigate={() => router.push("/the-other-narrativ")}
-        onComplete={() => setIsJourneyActive(false)}
-        onCancel={() => setIsJourneyActive(false)}
-      />
+      {isJourneyActive && (
+        <OtherNarrativTransition
+          key={transitionKey}
+          isActive={isJourneyActive}
+          onNavigate={() => router.push("/the-other-narrativ")}
+          onComplete={() => setIsJourneyActive(false)}
+          onCancel={() => setIsJourneyActive(false)}
+        />
+      )}
     </>
   );
 }

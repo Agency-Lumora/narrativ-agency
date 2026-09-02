@@ -10,7 +10,7 @@
 .transitionLayer {
   position: fixed;
   inset: 0;
-  z-index: 40;
+  z-index: 9999;
   min-height: 0;
   height: 100svh;
   pointer-events: auto;
