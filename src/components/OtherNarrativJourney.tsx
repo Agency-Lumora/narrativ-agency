@@ -51,7 +51,7 @@ function Train({ point, scale, progress }: TrainProps) {
   return (
     <g
       className={styles.train}
-      transform={`translate(${point.x} ${point.y}) rotate(${point.angle}) scale(${scale * 1.8})`}
+      transform={`translate(${point.x} ${point.y}) rotate(${point.angle}) scale(${scale * 1.2})`}
     >
       {/* White smoke trail - using CSS animation for better visibility */}
       <ellipse
@@ -225,7 +225,7 @@ export default function OtherNarrativJourney({ onComplete }: OtherNarrativJourne
           className={styles.curveStroke}
           style={{ pathLength: progress }}
         />
-        <Train point={mobilePoint} scale={0.85} progress={progress} />
+        <Train point={mobilePoint} scale={0.62} progress={progress} />
       </svg>
 
       <div className={styles.polaroidLayer}>
@@ -233,6 +233,7 @@ export default function OtherNarrativJourney({ onComplete }: OtherNarrativJourne
           <motion.div
             key={polaroid.caption}
             className={styles.polaroid}
+            data-polaroid-index={index}
             style={{ left: polaroid.left, top: polaroid.top }}
             initial={{ opacity: 0, scale: 0.82, y: 16, rotate: polaroid.rotation }}
             animate={
@@ -267,7 +268,7 @@ export default function OtherNarrativJourney({ onComplete }: OtherNarrativJourne
       {/* Show title only after last card appears */}
       {progress >= POLAROID_THRESHOLDS[POLAROID_THRESHOLDS.length - 1] && (
         <motion.div
-          className={styles.titleBlock}
+          className={`${styles.titleBlock} ${styles.journeyTitleBlock}`}
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}

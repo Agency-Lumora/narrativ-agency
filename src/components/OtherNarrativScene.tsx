@@ -36,14 +36,14 @@ export const POLAROIDS = [
     src: "/media/other-narrativ/editorial-03.jpg",
     caption: "the team",
     left: "48%",
-    top: "63%",
+    top: "53%",
     rotation: -4,
   },
   {
     src: "/media/other-narrativ/editorial-02.jpg",
     caption: "first conversation",
     left: "76%",
-    top: "5%",
+    top: "2%",
     rotation: 6,
   },
 ];
@@ -133,10 +133,11 @@ export default function OtherNarrativScene({
       </motion.div>
 
       <div className={styles.polaroidLayer}>
-        {POLAROIDS.map((polaroid) => (
+        {POLAROIDS.map((polaroid, index) => (
           <div
             key={polaroid.caption}
             className={styles.polaroid}
+            data-polaroid-index={index}
             style={{
               left: polaroid.left,
               top: polaroid.top,
