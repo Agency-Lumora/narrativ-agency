@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowDown } from "lucide-react";
 
 const problems = [
   {
@@ -209,7 +209,8 @@ className="group relative border-b border-black/10 py-6 md:py-8 hover:bg-black/1
                       className="text-black/30 group-hover:text-brand-red transition-colors duration-300"
                       whileHover={{ x: 5 }}
                     >
-                      <ArrowRight size={20} />
+                      <ArrowRight size={20} className="hidden md:block" />
+                      <ArrowDown size={20} className="block md:hidden" />
                     </motion.div>
                   </div>
 

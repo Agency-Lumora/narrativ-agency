@@ -284,7 +284,7 @@ export default function Benefits() {
             Benefits
           </motion.p>
 
-          {/* Main heading */}
+          {/* Main heading with toggle */}
           <motion.h2
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -299,112 +299,110 @@ export default function Benefits() {
               sm:text-[48px]
               md:text-[56px]
               lg:text-[60px]
+              flex items-center justify-center gap-2
             "
           >
-            The Way We Work
-            <span className="text-brand-red">.</span>
+            HOW WE
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: 0.12 }}
+              className="
+                inline-flex
+                items-center
+                p-[3px]
+                rounded-full
+                border border-black/[0.10]
+                bg-black/[0.025]
+              "
+            >
+              <button
+                onClick={() => setIsDo(true)}
+                aria-pressed={isDo}
+                className={`
+                  relative
+                  min-w-[86px]
+                  px-5
+                  py-3
+                  rounded-full
+                  text-[13px] md:text-[14px]
+                  font-semibold
+                  tracking-wide
+                  transition-all duration-300
+                  ${
+                    isDo
+                      ? "text-white"
+                      : "text-black/35 hover:text-black/60"
+                  }
+                `}
+              >
+                {isDo && (
+                  <motion.div
+                    layoutId="benefits-toggle"
+                    className="
+                      absolute
+                      inset-0
+                      rounded-full
+                      bg-brand-red
+                    "
+                    transition={{
+                      type: "spring",
+                      bounce: 0.15,
+                      duration: 0.5,
+                    }}
+                  />
+                )}
+
+                <span className="relative z-10">
+                  DO
+                </span>
+              </button>
+
+              <button
+                onClick={() => setIsDo(false)}
+                aria-pressed={!isDo}
+                className={`
+                  relative
+                  min-w-[86px]
+                  px-5
+                  py-2
+                  rounded-full
+                  text-[13px] md:text-[14px]
+                  font-semibold
+                  tracking-wide
+                  transition-all duration-300
+                  ${
+                    !isDo
+                      ? "text-white"
+                      : "text-black/35 hover:text-black/60"
+                  }
+                `}
+              >
+                {!isDo && (
+                  <motion.div
+                    layoutId="benefits-toggle"
+                    className="
+                      absolute
+                      inset-0
+                      rounded-full
+                      bg-brand-red
+                    "
+                    transition={{
+                      type: "spring",
+                      bounce: 0.15,
+                      duration: 0.5,
+                    }}
+                  />
+                )}
+
+                <span className="relative z-10">
+                  DON'T
+                </span>
+              </button>
+            </motion.div>
+            WORK?
           </motion.h2>
-
-          {/* Toggle */}
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.35, delay: 0.12 }}
-            className="
-              inline-flex
-              items-center
-              mt-7
-              p-[3px]
-              rounded-full
-              border border-black/[0.10]
-              bg-black/[0.025]
-            "
-          >
-            <button
-              onClick={() => setIsDo(true)}
-              aria-pressed={isDo}
-              className={`
-                relative
-                min-w-[86px]
-                px-5
-                py-2
-                rounded-full
-                text-[13px] md:text-[14px]
-                font-semibold
-                tracking-wide
-                transition-all duration-300
-                ${
-                  isDo
-                    ? "text-white"
-                    : "text-black/35 hover:text-black/60"
-                }
-              `}
-            >
-              {isDo && (
-                <motion.div
-                  layoutId="benefits-toggle"
-                  className="
-                    absolute
-                    inset-0
-                    rounded-full
-                    bg-brand-red
-                  "
-                  transition={{
-                    type: "spring",
-                    bounce: 0.15,
-                    duration: 0.5,
-                  }}
-                />
-              )}
-
-              <span className="relative z-10">
-                DO
-              </span>
-            </button>
-
-            <button
-              onClick={() => setIsDo(false)}
-              aria-pressed={!isDo}
-              className={`
-                relative
-                min-w-[86px]
-                px-5
-                py-2
-                rounded-full
-                text-[13px] md:text-[14px]
-                font-semibold
-                tracking-wide
-                transition-all duration-300
-                ${
-                  !isDo
-                    ? "text-white"
-                    : "text-black/35 hover:text-black/60"
-                }
-              `}
-            >
-              {!isDo && (
-                <motion.div
-                  layoutId="benefits-toggle"
-                  className="
-                    absolute
-                    inset-0
-                    rounded-full
-                    bg-brand-red
-                  "
-                  transition={{
-                    type: "spring",
-                    bounce: 0.15,
-                    duration: 0.5,
-                  }}
-                />
-              )}
-
-              <span className="relative z-10">
-                DON'T
-              </span>
-            </button>
-          </motion.div>
 
           {/* Subheading */}
           <div className="mt-5 h-[24px] flex items-center justify-center">

@@ -8,39 +8,9 @@ export default function AboutPreview() {
   return (
     <section className="relative py-12 md:py-16 border-b border-black/10 bg-white">
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
-        
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-10 md:mb-12 max-w-3xl"
-        >
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="text-brand-red font-bold tracking-[0.2em] uppercase text-xs mb-4"
-          >
-            WHO IS NARRATIV?
-          </motion.p>
-
-          <h2 className="font-heading font-bold tracking-tighter leading-[0.95] text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] mb-6">
-            WE'RE NOT HERE
-            <br />
-            TO MAKE YOU
-            <br />
-            LOOK BUSY
-            <br />
-            <span className="text-brand-red">ONLINE.</span>
-          </h2>
-
-          <p className="text-base md:text-lg text-black/70 leading-relaxed">
-            Narrativ is a creative marketing agency built around one idea: your brand should have something worth saying — and every digital touchpoint should say it well.
-          </p>
-        </motion.div>
+        <p className="text-brand-red font-bold tracking-[0.2em] uppercase text-xs mb-6">
+          ABOUT
+        </p>
 
         {/* Quick Problems Preview */}
         <motion.div
@@ -50,7 +20,7 @@ export default function AboutPreview() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-10 md:mb-12"
         >
-          <h3 className="font-heading font-bold tracking-tighter leading-[0.95] text-[24px] sm:text-[32px] md:text-[40px] mb-6">
+          <h3 className="font-heading font-bold tracking-tighter leading-[0.95] text-[36px] sm:text-[44px] md:text-[56px] mb-6">
             YOUR BRAND DOESN'T
             <br />
             NEED MORE CONTENT.
