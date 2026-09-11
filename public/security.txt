@@ -1,0 +1,19 @@
+# Security Policy for narrativ.com
+
+# Contact for security issues
+Contact: security@narrativ.com
+
+# Preferred language
+Preferred-Languages: en, es
+
+# Encryption
+Encryption: https://keybase.io/encrypt
+
+# Acknowledgments
+Acknowledgments: https://narrativ.com/security-acknowledgments
+
+# Policy URL
+Policy: https://narrativ.com/security-policy
+
+# Hiring
+Hiring: https://narrativ.com/careers
